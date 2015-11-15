@@ -1,0 +1,17 @@
+web1:
+  build: ./web
+  ports:
+    - "3000"
+
+web2:
+  build: ./web
+  ports:
+    - "3000"
+
+nginx:
+  build: ./nginx
+  links:
+    - web1:nginxplayground_web_1
+    - web2:nginxplayground_web_2
+  ports:
+    - "80:80"
